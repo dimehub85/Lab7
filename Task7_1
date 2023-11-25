@@ -1,0 +1,117 @@
+
+
+def read_file(file_path):
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            return file.read()
+    except FileNotFoundError:
+        print("File not found. Please check the file path.")
+        return None
+
+def task_1(file_path):
+    print('Task 1:')
+    content = read_file(file_path)
+    if content is not None:
+        print(content)
+
+
+def task_2(file_path):
+    import random
+    print('Task 2')
+    print('--------------------------------------------------------')
+    content = read_file(file_path)
+    if content is not None:
+        lines = content.split('\n')
+        random_line = random.choice(lines)
+        print(random_line)
+
+def task_3(file_path):
+    print('Task 3')
+    print('--------------------------------------------------------')
+    content = read_file(file_path)
+    if content is not None:
+        uppercase_count = sum(1 for char in content if char.isupper())
+        print(f"The number of uppercase characters in the file is: {uppercase_count}")
+
+def task_4(file_path):
+    print('Task 4')
+    print('--------------------------------------------------------')
+    content = read_file(file_path)
+    if content is not None:
+        lines = content.split('\n')
+        count = sum(1 for line in lines if not line.startswith('D'))
+        print(f"The number of lines not starting with 'D' is: {count}")
+
+def task_5(file_path):
+    print('Task 5')
+    print('--------------------------------------------------------')
+    content = read_file(file_path)
+    if content is not None:
+        words = content.split()
+        count = sum(1 for word in words if word.lower().endswith('f'))
+        print(f"The number of words ending with 'F' or 'f' is: {count}")
+
+def task_6(file_path):
+    print('Task 6')
+    print('--------------------------------------------------------')
+    content = read_file(file_path)
+    if content is not None:
+        words = content.split()
+        count_all = words.count("all")
+        count_none = words.count("none")
+        print(f"Occurrences of 'all': {count_all}")
+        print(f"Occurrences of 'none': {count_none}")
+
+def task_7(file_path):
+    print('Task 7')
+    print('--------------------------------------------------------')
+    content = read_file(file_path)
+    if content is not None:
+        from collections import Counter
+        words = content.split()
+        word_freq = Counter(words)
+        print("Word frequency in the file:")
+        for word, freq in word_freq.items():
+            print(f"{word}: {freq}")
+
+def task_8(file_path):
+    print('Task 8')
+    print('--------------------------------------------------------')
+    content = read_file(file_path)
+    if content is not None:
+        words = content.split()
+        longest_word = max(words, key=len)
+        print(f"The longest word in the file is: {longest_word}")
+
+def task_9(file_path):
+    print('Task 9')
+    print('--------------------------------------------------------')
+    content = read_file(file_path)
+    if content is not None:
+        corrected_content = content.replace('B', 'J').replace('b', 'j')
+        print("Corrected content:")
+        print(corrected_content)
+
+def task_10(file_path):
+    print('Task 10')
+    print('--------------------------------------------------------')
+    content = read_file(file_path)
+    if content is not None:
+        content_lower = content.lower()
+        count_a = content_lower.count('a')
+        count_b = content_lower.count('b')
+        print(f"Occurrences of A: {count_a}, Occurrences of B: {count_b}")
+
+file_path = 'text1.txt'
+
+# Run tasks
+task_1(file_path)
+task_2(file_path)
+task_3(file_path)
+task_4(file_path)
+task_5(file_path)
+task_6(file_path)
+task_7(file_path)
+task_8(file_path)
+task_9(file_path)
+task_10(file_path)
